@@ -1,0 +1,48 @@
+{
+    "title": "Rank test",
+    "height": "1920",
+    "width": 1080,
+    "framerate": 30,
+    "listItems": [
+        {
+            "rank": 1,
+            "text": "test1",
+            "source": {
+                "type": "file",
+                "path": "/home/hugo/Téléchargements/videoTest1.mp4"
+            }
+        },
+        {
+            "rank": "2",
+            "text": "test2",
+            "source": {
+                "type": "file",
+                "path": "/home/hugo/Téléchargements/videoTest2.mp4"
+            }
+        },
+        {
+            "rank": 3,
+            "text": "test3",
+            "source": {
+                "type": "file",
+                "chemin": "/home/hugo/Téléchargements/videoTest3.mp4"
+            }
+        },
+        {
+            "rank": 4,
+            "text": "test4",
+            "source": {
+                "type": "file",
+                "path": "/home/hugo/Téléchargements/videoTest4.mp4"
+            }
+        },
+        {
+            "rank": 5,
+            "text": "test5",
+            "source": {
+                "type": "file",
+                "path": "/home/hugo/Téléchargements/videoTest5.mp4"
+            }
+        }
+    ]
+}
