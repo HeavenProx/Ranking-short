@@ -1,38 +1,19 @@
 import { z } from "zod";
 
-export interface SourceFichier {
-    type: "file",
-    path: string
-}
-
-export type Source = SourceFichier;
-
-const sourceSchema = z.discriminatedUnion("type", [
+export const sourceSchema = z.discriminatedUnion("type", [
   z.object({ type: z.literal("file"), path: z.string() })
 ]);
+export type Source = z.infer<typeof sourceSchema>
 
+export const rankSchema = z.literal([1, 2, 3, 4, 5]);
+export type Rank = z.infer<typeof rankSchema>;
 
-export type Rank = 1 | 2 | 3 | 4 | 5;
-
-export interface Item {
-    rank: Rank,
-    text: string,
-    source: Source
-}
-
-const itemSchema = z.object({
-    rank: z.literal([1, 2, 3, 4, 5]),
+export const itemSchema = z.object({
+    rank: rankSchema,
     text: z.string().min(5),
     source: sourceSchema
 })
-
-export interface Spec {
-    title: string,
-    readonly height: number,
-    readonly width: number,
-    readonly framerate: number,
-    readonly listItems: ReadonlyArray<Item>
-}
+export type Item = z.infer<typeof itemSchema>
 
 export const specSchema = z.object({
     title: z.string(),
@@ -41,6 +22,7 @@ export const specSchema = z.object({
     framerate: z.number().min(23).int(),
     listItems: z.array(itemSchema).nonempty()
 })
+export type Spec = z.infer<typeof specSchema>
 
 export function consommeSource(source: Source): string {
     switch (source.type) {
