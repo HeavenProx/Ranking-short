@@ -1,6 +1,7 @@
-import { loadSpec } from "../core/load-spec";
+import { loadSpec } from "./load-spec";
 
 const path = process.argv[2] ?? "examples/demo.json";
 
-const retour = loadSpec(path);
-console.log("Titre " + retour.title + " & Nombre d'item : " + retour.listItems.length);
+const retour = await loadSpec(path);
+console.log("Title : " + retour.title);
+console.log("Item's number : ", retour.listItems.length);
