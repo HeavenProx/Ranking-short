@@ -18,6 +18,7 @@
     "typescript": "^7.0.2"
   },
   "dependencies": {
+    "skia-canvas": "^3.0.8",
     "zod": "^4.4.3"
   }
 }

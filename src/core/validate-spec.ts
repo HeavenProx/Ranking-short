@@ -7,7 +7,7 @@ type objectDatas = { ok: true, data: Spec } |  { ok: false, message: string };
 export function validerSpec(datas: unknown): objectDatas {
 
     // Vérifie le schéma de la Spec
-    const result = .safeParse(datas)specSchema
+    const result = specSchema.safeParse(datas);
 
     // Si schéma n'approuve pas = pas bon
     if(!result.success){
