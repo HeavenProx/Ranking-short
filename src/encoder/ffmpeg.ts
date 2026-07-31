@@ -1,12 +1,15 @@
 import { executer } from "./executer.js"
 
-try {
+export async function createVideo(enter: string, out: string, time: string, fps: number): Promise<void>{
+  const optionFps = "fps=" + fps;
+  
   await executer("ffmpeg", [
-    "-i", "../../out/overlay.mp4",     // fichier d'entrée
-    "-t", "3",                   // garder 3 secondes
-    "-y",                        // écraser la sortie si elle existe
-    "../../out/test.mp4",           // fichier de sortie
+    "-loop", "1",                 // loop active 
+    "-i", enter,                  // fichier d'entrée
+    "-t", time,                   // garder X secondes
+    "-filter:v", optionFps,       // fps         
+    "-y",                         // supprime sortie si existant
+    "-pix_fmt", "yuv420p",        // pixel format 
+    out,                          // fichier de sortie
   ]);
-} catch (err){
-  console.log("Error : ", err);
 }
