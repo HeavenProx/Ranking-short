@@ -2,13 +2,11 @@ import { type Spec } from "../core/spec"
 import { Canvas } from "skia-canvas";
 
 export function randomRgbColor(rank: number): string {
-    const min = 125;
-    const max = 225;
-    const h = Math.floor(Math.random() * 361);
+    const h = Math.floor((rank*70) % 365);
     // Saturation : 40% à 100% pour éviter les couleurs ternes
-    const s = Math.floor(Math.random() * 61) + 40;
+    const s = Math.floor((rank*48) % 365)
     // Luminosité : 30% à 70% pour éviter trop sombre ou trop clair
-    const l = Math.floor(Math.random() * 41) + 30;
+    const l = Math.floor((rank*17) % 365)
   return `hsl(${h}, ${s}%, ${l}%)`;
 }
 
