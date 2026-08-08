@@ -4,8 +4,8 @@ import { drawImage } from "./draw-overlay.js";
 import type { Spec } from "../core/spec.js";
 import path from "node:path";
 
-const INTERVALLE = 0.5;
-const DUREE = 5;
+const INTERVALLE = 2;
+const DUREE = 10;
 
 export async function genererSequence(spec: Spec, dossier: string): Promise<void> {
 

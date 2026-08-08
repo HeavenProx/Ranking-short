@@ -23,9 +23,12 @@ export function drawImage(spec: Spec, nbVisible: number): Canvas {
     const canvas = new Canvas(spec.width, spec.height);
     const ctx = canvas.getContext("2d");
 
+    ctx.fillStyle = "Black";        
+    ctx.fillRect(0, 0, 1080, 240);
+
     // Title
     ctx.fillStyle = "White";
-    ctx.font = "bold 60px sans";
+    ctx.font = "bold 80px sans";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(spec.title, spec.width / 2, 120);
@@ -35,16 +38,16 @@ export function drawImage(spec: Spec, nbVisible: number): Canvas {
     aAfficher.forEach((item, i) => {
         // Rank Number
         ctx.fillStyle = "Red";
-        ctx.font = "bold 50px sans";
+        ctx.font = "bold 70px sans";
         const yRankText = 700 + i * 120;
         const number = `${item.rank}.`;
         ctx.fillText(number, 70, yRankText);
 
         // Rank Text
-        ctx.font = "bold 40px sans";
+        ctx.font = "bold 60px sans";
         ctx.fillStyle = randomRgbColor(item.rank);
         const largeur = ctx.measureText(number).width;
-        ctx.fillText(item.text, 125 + largeur, yRankText);
+        ctx.fillText(item.text, 140 + largeur, yRankText);
     })
 
     return canvas
